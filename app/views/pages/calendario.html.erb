@@ -23,8 +23,6 @@
                 </p>
                <br> 
             </div>
-
-            <br>
             <br>
 
             <ul class="nav nav-tabs" class="col-xs6 col-md-4" >
@@ -39,6 +37,8 @@
             </ul>
 
             <% if params[:fecha_select].nil? %> 
+
+
             <% else %> 
                 <% @fecha_start = params[:fecha_select].first + '-01' %>
                 <% if ((@fecha_start.to_datetime.strftime("%m") == '01') or (@fecha_start.to_datetime.strftime("%m") == '03') or (@fecha_start.to_datetime.strftime("%m") == '05') or (@fecha_start.to_datetime.strftime("%m") == '07') or (@fecha_start.to_datetime.strftime("%m") == '08') or (@fecha_start.to_datetime.strftime("%m") == '10') or (@fecha_start.to_datetime.strftime("%m") == '12'))
@@ -50,6 +50,24 @@
                     <% @fecha_actual_end = @fecha_end.to_datetime.strftime("%y-%m-%d")  %>
                     <% @fecha_actual = @fecha_start.to_datetime %>
             <% end %>
+            <br><br>
+            <h1 style=" color: #9FA0A3;" class="text-uppercase class="agenda-date"">
+                <% if @fecha_actual.strftime("%B")=="January" %> Enero
+                                                        <% elsif @fecha_actual.strftime("%B")=="February" %> Febrero
+                                                        <% elsif @fecha_actual.strftime("%B")=="March" %> Marzo
+                                                        <% elsif @fecha_actual.strftime("%B")=="April" %> Abril
+                                                        <% elsif @fecha_actual.strftime("%B")=="May" %> Mayo
+                                                        <% elsif @fecha_actual.strftime("%B")=="June" %> Junio
+                                                        <% elsif @fecha_actual.strftime("%B")=="July" %> Julio
+                                                        <% elsif @fecha_actual.strftime("%B")=="August" %> Agosto
+                                                        <% elsif @fecha_actual.strftime("%B")=="September" %> Septiembre
+                                                        <% elsif @fecha_actual.strftime("%B")=="October" %> Octubre
+                                                        <% elsif @fecha_actual.strftime("%B")=="November" %> Noviembre
+                                                        <% elsif @fecha_actual.strftime("%B")=="December" %> Diciembre
+                                                    <% else %> 
+                                                    <% end %> del  <%= @fecha_actual.year %>
+               </h1>
+
             <!-- TODOS -->
             <div class="tab-content">
                 <div id="todos" class="tab-todos tab-pane fade active in  ">
