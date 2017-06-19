@@ -25,11 +25,7 @@ test:
   port: 3306
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: true
+  adapter: postgresql
   database: educacion
-  username: cec
-  password: educacion
-  host: 192.168.26.104
-  port: 3306
+  pool: 5
+  timeout: 5000
